@@ -1,12 +1,10 @@
-import sys
+from argparse import ArgumentParser
 
 def main():
-    if (len(sys.argv) != 2):
-        print(f"""Wrong argument count!
-              Excepted: 1
-              Got: {len(sys.argv) - 1}""")
-        return
-    strs = sys.argv[1].split()
+    parser = ArgumentParser()
+    parser.add_argument("string", help = "Input string that contains ciphered message", type = str)
+    args = parser.parse_args()
+    strs = args.string.split()
     print("".join(word[0] for word in strs))
 
 if __name__ == "__main__":
