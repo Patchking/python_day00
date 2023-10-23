@@ -1,20 +1,14 @@
-import sys
+from argparse import ArgumentParser
 
 def main():
-    strscount = 0
-    if (len(sys.argv) != 2):
-        print(f"""Wrong argument count!
-              Excepted: 1
-              Got: {len(sys.argv) - 1}""")
-        return
-    try:
-        strscount = int(sys.argv[1])
-    except ValueError:
-        print("Argument not a number")
-        return
+    parser = ArgumentParser()
+    parser.add_argument("line_count", help = "Enter strings count", type = int)
+    args = parser.parse_args()
+    print(f"first arg is {args.line_count}")
+    strscount = args.line_count
 
     for i in range(strscount):
-        innput = input()
+        innput = input().strip()
         if (len(innput) == 32 and innput[:5] == "00000" and innput[5] != "0"):
             print(innput)
 
