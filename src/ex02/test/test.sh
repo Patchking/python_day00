@@ -1,17 +1,10 @@
 #!/bin/bash
 
-echo "Testing test0..."
-cat test0
-echo
-cat test0 | python3.11 ../mfinder.py
-echo
-echo "Testing test1..."
-cat test1
-echo
-cat test1 | python3.11 ../mfinder.py
-echo
-echo "Testing test2..."
-cat test2
-echo
-cat test2 | python3.11 ../mfinder.py
-echo
+
+for ((i=0; i<=4; i++)); do
+    echo "Testing test$i..."
+    cat test$i
+    echo
+    cat test$i | python3.11 ../mfinder.py
+    echo
+done
